@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GlobalShader.h"
+#include "CommonRenderResources.h"
 /* #include "Engine/TextureRenderTarget2D.h" */
 /* #include "CanvasTypes.h" */
 /* #include "Engine/Canvas.h" */
@@ -63,61 +64,38 @@ IMPLEMENT_SHADER_TYPE(, FMyPS, TEXT("/Shaders/Debug.usf"), TEXT("MainPS"), SF_Pi
 /*     return RenderTarget; */
 /* } */
 
-/* void DrawToRenderTarget(UObject* WorldContextObject, UTextureRenderTarget2D* RenderTarget) */
-/* { */
-/* 	if (!RenderTarget) return; */
-	    
-/* 	UWorld* World = GEngine->GetWorldFromContextObjectChecked(WorldContextObject); */
-/* 	FTextureRenderTargetResource* RTResource = RenderTarget->GameThread_GetRenderTargetResource(); */
-	 
-/* 	FCanvas Canvas(RTResource, nullptr, World, World->FeatureLevel); */
-	    
-/* 	// Clear to blue */
-/* 	Canvas.Clear(FLinearColor::Blue); */
-	 
-/* 	// Draw white rectangle in center */
-/* 	FVector2D Position(RenderTarget->SizeX / 4, RenderTarget->SizeY / 4); */
-/* 	FVector2D Size(RenderTarget->SizeX / 2, RenderTarget->SizeY / 2); */
-/* 	FCanvasTileItem TileItem(Position, Size, FLinearColor::White); */
-/* 	TileItem.BlendMode = SE_BLEND_Translucent; */
-/* 	Canvas.DrawItem(TileItem); */
-	 
-/* 	Canvas.Flush_GameThread(); */
-/* 	RenderTarget->UpdateResourceImmediate(false); */
-/* } */
+void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef RenderTarget)
+{
+    // 1. Получаем шейдеры
+    TShaderMapRef<FDebugShader> VertexShader(GetGlobalShaderMap(GMaxRHIFeatureLevel));
+    TShaderMapRef<FMyPS> PixelShader(GetGlobalShaderMap(GMaxRHIFeatureLevel));
 
-/* ENQUEUE_RENDER_COMMAND(RenderToTexture)( */
-/*     [TextureRHI, RTResource](FRHICommandListImmediate& RHICmdList) */
-/*     { */
-/*         // Setup render pass info: clear on start, store results */
-/*         FRHIRenderPassInfo RPInfo(TextureRHI, ERenderTargetActions::Clear_Store); */
-/*         RHICmdList.BeginRenderPass(RPInfo, TEXT("RenderToTexturePass")); */
+    // 2. Начинаем рендер пасс
+    FRHIRenderPassInfo RenderPassInfo(RenderTarget, ERenderTargetActions::DontLoad_Store);
+    RHICmdList.BeginRenderPass(RenderPassInfo, TEXT("SimpleRenderPass"));
 
-/*         // Set viewport to texture size */
-/*         RHICmdList.SetViewport(0, 0, 0, RTResource->GetSizeX(), RTResource->GetSizeY(), 1.0f); */
+    // 3. Настраиваем вьюпорт
+	FIntPoint TargetSize(1920, 1080); // Или ваш размер
+    RHICmdList.SetViewport(0, 0, 0.0f, TargetSize.X, TargetSize.Y, 1.0f);
 
-/*         // Here you bind shaders and set pipeline */
-/*         // Example uses engine fullscreen vertex shader + custom pixel shader */
+    // 4. Настраиваем графический пайплайн
+    FGraphicsPipelineStateInitializer GraphicsPSOInit;
+    RHICmdList.ApplyCachedRenderTargets(GraphicsPSOInit);
+    
+    GraphicsPSOInit.DepthStencilState = TStaticDepthStencilState<false, CF_Always>::GetRHI();
+    GraphicsPSOInit.BlendState = TStaticBlendState<>::GetRHI();
+    GraphicsPSOInit.RasterizerState = TStaticRasterizerState<>::GetRHI();
+    GraphicsPSOInit.PrimitiveType = PT_TriangleList;
+    
+    GraphicsPSOInit.BoundShaderState.VertexDeclarationRHI = GEmptyVertexDeclaration.VertexDeclarationRHI;
+    GraphicsPSOInit.BoundShaderState.VertexShaderRHI = VertexShader.GetVertexShader();
+    GraphicsPSOInit.BoundShaderState.PixelShaderRHI = PixelShader.GetPixelShader();
 
-/*         TShaderMapRef<FMyCustomPS> PixelShader(GetGlobalShaderMap(GMaxRHIFeatureLevel)); */
+    SetGraphicsPipelineState(RHICmdList, GraphicsPSOInit);
 
-/*         FGraphicsPipelineStateInitializer PSOInit; */
-/*         RHICmdList.ApplyCachedRenderTargets(PSOInit); */
-/*         PSOInit.BlendState = TStaticBlendState<>::GetRHI(); */
-/*         PSOInit.RasterizerState = TStaticRasterizerState<>::GetRHI(); */
-/*         PSOInit.DepthStencilState = TStaticDepthStencilState<false, CF_Always>::GetRHI(); */
+    // 5. Рисуем 3 вершины (полноэкранный треугольник)
+    RHICmdList.DrawPrimitive(0, 1, 3);
 
-/*         PSOInit.BoundShaderState.VertexDeclarationRHI = GFilterVertexDeclaration.VertexDeclarationRHI; */
-/*         PSOInit.BoundShaderState.VertexShaderRHI = nullptr; // default fullscreen VS */
-/*         PSOInit.BoundShaderState.PixelShaderRHI = PixelShader.GetPixelShader(); */
-/*         PSOInit.PrimitiveType = PT_TriangleList; */
-
-/*         SetGraphicsPipelineState(RHICmdList, PSOInit); */
-
-/*         RHICmdList.SetStreamSource(0, GFilterVertexBuffer.VertexBufferRHI, 0); */
-        
-/*         // Draw fullscreen quad (2 triangles) */
-/*         RHICmdList.DrawPrimitive(0, 2, 1); */
-
-/*         RHICmdList.EndRenderPass(); */
-/*     }); */
+    // 6. Заканчиваем рендер пасс
+    RHICmdList.EndRenderPass();
+}
