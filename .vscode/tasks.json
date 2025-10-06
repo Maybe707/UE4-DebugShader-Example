@@ -1,0 +1,1985 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "DebugRenderpass Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass Mac Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass Mac Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Mac Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Mac",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass IOS Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass IOS DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass IOS Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass IOS Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass IOS Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass IOS Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"IOS",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass Linux Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass Linux DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass Linux Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass Linux Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass Linux Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass Linux Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"Linux",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass LinuxAArch64 Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass LinuxAArch64 DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass LinuxAArch64 Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass LinuxAArch64 Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass LinuxAArch64 Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass LinuxAArch64 Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"LinuxAArch64",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass TVOS Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass TVOS DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass TVOS Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass TVOS Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass TVOS Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass TVOS Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"TVOS",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass XXX Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass XXX DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass XXX Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass XXX Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Shipping",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpass XXX Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpass XXX Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpass",
+				"XXX",
+				"Test",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Linux Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Linux",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Linux Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Linux",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpassEditor Linux Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Linux Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Linux",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Linux DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Linux",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Linux DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Linux",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpassEditor Linux DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Linux DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Linux",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Linux Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Linux",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Linux Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Linux",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpassEditor Linux Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Linux Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Linux",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Mac",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Mac",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpassEditor Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Mac",
+				"Debug",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Mac",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Mac",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpassEditor Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Mac",
+				"DebugGame",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Mac",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Mac",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"DebugRenderpassEditor Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		},
+		{
+			"label": "DebugRenderpassEditor Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+			"args": [
+				"DebugRenderpassEditor",
+				"Mac",
+				"Development",
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/home/scream9/UnrealEngine"
+			}
+		}
+	]
+}

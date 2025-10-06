@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{0004A754-08DD-8787-F85E-35067507AED8}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "DebugRenderpass",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"files.exclude": {
+		"/home/scream9/Documents/Unreal Projects/DebugRenderpass/.vscode": true,
+		"/home/scream9/Documents/Unreal Projects/DebugRenderpass/Content": true,
+		"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DerivedDataCache": true,
+		"/home/scream9/Documents/Unreal Projects/DebugRenderpass/Intermediate": true,
+		"/home/scream9/Documents/Unreal Projects/DebugRenderpass/Saved": true,
+		"/home/scream9/Documents/Unreal Projects/DebugRenderpass/Plugins/DebugShader/Intermediate": true
+	}
+}

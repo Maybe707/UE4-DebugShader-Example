@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"name": "DebugRenderpass",
+			"path": "."
+		},
+		{
+			"name": "UE4",
+			"path": "/home/scream9/UnrealEngine"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp",
+			"vadimcn.vscode-lldb",
+			"ms-vscode.mono-debug"
+		]
+	}
+}

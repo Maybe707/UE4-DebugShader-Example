@@ -1,0 +1,104 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "DebugRenderpass (Debug)",
+			"request": "launch",
+			"preLaunchTask": "DebugRenderpass Linux Debug Build",
+			"program": "/home/scream9/Documents/Unreal Projects/DebugRenderpass/Binaries/Linux/DebugRenderpass-Linux-Debug",
+			"args": [
+			],
+			"cwd": "/home/scream9/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "DebugRenderpass (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "DebugRenderpass Linux DebugGame Build",
+			"program": "/home/scream9/Documents/Unreal Projects/DebugRenderpass/Binaries/Linux/DebugRenderpass-Linux-DebugGame",
+			"args": [
+			],
+			"cwd": "/home/scream9/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "DebugRenderpass (Development)",
+			"request": "launch",
+			"preLaunchTask": "DebugRenderpass Linux Development Build",
+			"program": "/home/scream9/Documents/Unreal Projects/DebugRenderpass/Binaries/Linux/DebugRenderpass",
+			"args": [
+			],
+			"cwd": "/home/scream9/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "DebugRenderpass (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "DebugRenderpass Linux Shipping Build",
+			"program": "/home/scream9/Documents/Unreal Projects/DebugRenderpass/Binaries/Linux/DebugRenderpass-Linux-Shipping",
+			"args": [
+			],
+			"cwd": "/home/scream9/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "DebugRenderpass (Test)",
+			"request": "launch",
+			"preLaunchTask": "DebugRenderpass Linux Test Build",
+			"program": "/home/scream9/Documents/Unreal Projects/DebugRenderpass/Binaries/Linux/DebugRenderpass-Linux-Test",
+			"args": [
+			],
+			"cwd": "/home/scream9/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "DebugRenderpassEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "DebugRenderpassEditor Linux Debug Build",
+			"program": "/home/scream9/UnrealEngine/Engine/Binaries/Linux/UE4Editor-Linux-Debug",
+			"args": [
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject"
+			],
+			"cwd": "/home/scream9/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "DebugRenderpassEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "DebugRenderpassEditor Linux DebugGame Build",
+			"program": "/home/scream9/UnrealEngine/Engine/Binaries/Linux/UE4Editor-Linux-DebugGame",
+			"args": [
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject"
+			],
+			"cwd": "/home/scream9/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "DebugRenderpassEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "DebugRenderpassEditor Linux Development Build",
+			"program": "/home/scream9/UnrealEngine/Engine/Binaries/Linux/UE4Editor",
+			"args": [
+				"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject"
+			],
+			"cwd": "/home/scream9/UnrealEngine",
+			"type": "lldb"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "mono",
+			"request": "launch",
+			"program": "/home/scream9/UnrealEngine/Engine/Binaries/DotNET/UnrealBuildTool.exe",
+			"console": "internalConsole",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=\"/home/scream9/Documents/Unreal Projects/DebugRenderpass/DebugRenderpass.uproject\"",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "/home/scream9/UnrealEngine"
+		}
+	]
+}
