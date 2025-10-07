@@ -31,7 +31,9 @@ public class DebugShader : ModuleRules
 				"RHI",
 				"Engine",
 				"Projects",
-				"Renderer"
+				"Renderer",
+				"AssetRegistry",
+				"ImageWrapper"
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);

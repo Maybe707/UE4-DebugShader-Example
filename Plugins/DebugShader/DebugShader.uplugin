@@ -17,7 +17,7 @@
 	"Modules": [
 		{
 			"Name": "DebugShader",
-			"Type": "Runtime",
+			"Type": "RunTime",
 			"LoadingPhase": "PostConfigInit"
 		}
 	]
