@@ -39,7 +39,7 @@ void FDebugShaderModule::StartupModule()
     
     // Map the virtual shader path to the physical directory
     AddShaderSourceDirectoryMapping(TEXT("/Shaders"), PluginShaderDir);
-
+	UE_LOG(LogTemp, Log, TEXT("DEBUG SHADER MODULE STARTED"));
 	//   // 1. Create a static delegate handle (optional if you want to unregister later)
     // static FDelegateHandle PostOpaqueHandle;
 
@@ -88,7 +88,7 @@ void FDebugShaderModule::StartupModule()
 			MID->SetTextureParameterValue(FName("RenderTexture"), GMyRenderTarget);
 		});
 	
-	UE_LOG(LogTemp, Log, TEXT("DebugShader module started"));
+	UE_LOG(LogTemp, Log, TEXT("DEBUG SHADER MODULE FINISHED"));
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
 }
 

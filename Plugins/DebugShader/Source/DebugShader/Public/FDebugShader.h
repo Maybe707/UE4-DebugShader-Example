@@ -13,22 +13,16 @@ class DEBUGSHADER_API FDebugShader : public FGlobalShader
 {
 	DECLARE_SHADER_TYPE(FDebugShader, Global);
 public:
-	FDebugShader() {}
-	FDebugShader(const ShaderMetaType::CompiledShaderInitializerType& Initializer)
-        : FGlobalShader(Initializer) {}
+	FDebugShader();
+	FDebugShader(const ShaderMetaType::CompiledShaderInitializerType& Initializer);
 
 	/* static bool ShouldCache(EShaderPlatform Platform) */
 	/* { */
 	/* 	return IsFeatureLevelSupported(Platform, ERHIFeatureLevel::SM5); */
 	/* } */
 	
-	static bool ShouldCompilePermutation(const FGlobalShaderPermutationParameters& Parameters)
-    {
-        return true; // Always compile
-    }
+	static bool ShouldCompilePermutation(const FGlobalShaderPermutationParameters& Parameters);
 };
-
-IMPLEMENT_SHADER_TYPE(, FDebugShader, TEXT("/Shaders/Debug.usf"), TEXT("MainVS"), SF_Vertex);
 
 /* IMPLEMENT_SHADER_TYPE(, FDebugShader, TEXT("/Plugins/Resources/Debug.usf"), TEXT("MainVS"), SF_Vertex); */
 
@@ -37,18 +31,11 @@ class DEBUGSHADER_API FMyPS : public FGlobalShader
     DECLARE_SHADER_TYPE(FMyPS, Global);
 
 public:
-    FMyPS() {}
-    FMyPS(const ShaderMetaType::CompiledShaderInitializerType& Initializer)
-        : FGlobalShader(Initializer)
-    {}
+    FMyPS();
+    FMyPS(const ShaderMetaType::CompiledShaderInitializerType& Initializer);
 
-    static bool ShouldCompilePermutation(const FGlobalShaderPermutationParameters& Parameters)
-    {
-        return true;
-    }
+    static bool ShouldCompilePermutation(const FGlobalShaderPermutationParameters& Parameters);
 };
-
-IMPLEMENT_SHADER_TYPE(, FMyPS, TEXT("/Shaders/Debug.usf"), TEXT("MainPS"), SF_Pixel);
 
 /* UTextureRenderTarget2D* CreateRenderTarget(UObject* Outer, int32 Width, int32 Height) */
 /* { */
