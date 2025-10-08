@@ -36,60 +36,6 @@ void CreateMyRenderTarget()
     GMyRenderTarget->UpdateResource();
 	GMyRenderTarget->AddToRoot();
 
-	FTextureRenderTargetResource* RTResource = GMyRenderTarget->GameThread_GetRenderTargetResource();
-
-	TArray<FColor> Bitmap;
-	RTResource->ReadPixels(Bitmap);
-
-// Now you can build a UTexture2D
-	UTexture2D* NewTexture = UTexture2D::CreateTransient(1920, 1080, PF_B8G8R8A8);
-	NewTexture->SRGB = false;
-	NewTexture->Filter = TF_Nearest;
-	NewTexture->AddToRoot();
-	// void* TextureData = NewTexture->PlatformData->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
-	// FMemory::Memcpy(TextureData, Bitmap.GetData(), Bitmap.Num() * sizeof(FColor));
-	// NewTexture->PlatformData->Mips[0].BulkData.Unlock();
-	// NewTexture->UpdateResource();
-
-	FTexture2DMipMap& Mip = NewTexture->PlatformData->Mips[0];
-	void* TextureData = Mip.BulkData.Lock(LOCK_READ_WRITE);
-
-	int32 MaxTileIndex = 1920 * 1080;
-	float* DestPtr = static_cast<float*>(TextureData);
-	for ( int32 i = 0; i < 1920 * 1080; ++i ) {
-		float Index = FMath::RandRange( 0.0, 4 );
-		DestPtr[i] = Index;   // R
-		// DestPtr[i * 4 + 1] = 0;       // G
-		// DestPtr[i * 4 + 2] = 0;       // B
-		// DestPtr[i * 4 + 3] = 0;       // A
-	}
-
-	Mip.BulkData.Unlock();
-	NewTexture->UpdateResource();
-
-	 // Make sure texture is fully loaded
-
-    // Access pixel data
-    FTexture2DMipMap& Mip1 = NewTexture->PlatformData->Mips[0];
-    void* Data = Mip1.BulkData.Lock(LOCK_READ_ONLY);
-
-    int32 Width = 1920;
-    int32 Height = 1080;
-    TArray<FColor> Pixels;
-    Pixels.SetNumUninitialized(Width * Height);
-    FMemory::Memcpy(Pixels.GetData(), Data, Pixels.Num() * sizeof(FColor));
-
-    Mip1.BulkData.Unlock();
-
-    // Use Image Wrapper to encode PNG
-    IImageWrapperModule& ImageWrapperModule = FModuleManager::LoadModuleChecked<IImageWrapperModule>(FName("ImageWrapper"));
-    TSharedPtr<IImageWrapper> ImageWrapper = ImageWrapperModule.CreateImageWrapper(EImageFormat::PNG);
-
-    ImageWrapper->SetRaw(Pixels.GetData(), Pixels.GetAllocatedSize(), Width, Height, ERGBFormat::BGRA, 8);
-
-    const TArray<unsigned char, TSizedDefaultAllocator<64>>& PNGData = ImageWrapper->GetCompressed();
-
-    FFileHelper::SaveArrayToFile(PNGData, *(FPaths::ProjectDir() / TEXT("Saved/MyTexture.png")));
 	
 	// FString PackageName = TEXT("/Game/MyFolder/MyAssetName");
 
@@ -148,6 +94,72 @@ void FDebugShaderModule::StartupModule()
 					// Create render target first
 					CreateMyRenderTarget();
 
+					ENQUEUE_RENDER_COMMAND(MyRenderCommand)(
+						[](FRHICommandListImmediate& RHICmdList)
+							{
+					FTextureRenderTargetResource* RTResource0 = GMyRenderTarget->GetRenderTargetResource();
+					GMyRenderTargetRHI = RTResource0->GetRenderTargetTexture();
+					// Run your custom render code
+					RenderSimplePass(RHICmdList, GMyRenderTargetRHI);
+							}
+						);
+					
+					FTextureRenderTargetResource* RTResource = GMyRenderTarget->GameThread_GetRenderTargetResource();
+
+					TArray<FColor> Bitmap;
+					RTResource->ReadPixels(Bitmap);
+
+// Now you can build a UTexture2D
+					UTexture2D* NewTexture = UTexture2D::CreateTransient(1920, 1080, PF_B8G8R8A8);
+					NewTexture->SRGB = false;
+					NewTexture->Filter = TF_Nearest;
+					NewTexture->AddToRoot();
+					void* TextureData = NewTexture->PlatformData->Mips[0].BulkData.Lock(LOCK_READ_WRITE);
+					FMemory::Memcpy(TextureData, Bitmap.GetData(), Bitmap.Num() * sizeof(FColor));
+					NewTexture->PlatformData->Mips[0].BulkData.Unlock();
+					NewTexture->UpdateResource();
+
+					// FTexture2DMipMap& Mip = NewTexture->PlatformData->Mips[0];
+					// void* TextureData = Mip.BulkData.Lock(LOCK_READ_WRITE);
+
+					// int32 MaxTileIndex = 1920 * 1080;
+					// float* DestPtr = static_cast<float*>(TextureData);
+					// for ( int32 i = 0; i < 1920 * 1080; ++i ) {
+					// 	float Index = FMath::RandRange( 0.0, 4 );
+					// 	DestPtr[i] = Index;   // R
+					// 	// DestPtr[i * 4 + 1] = 0;       // G
+					// 	// DestPtr[i * 4 + 2] = 0;       // B
+					// 	// DestPtr[i * 4 + 3] = 0;       // A
+					// }
+
+					// Mip.BulkData.Unlock();
+					// NewTexture->UpdateResource();
+
+					// Make sure texture is fully loaded
+
+					// Access pixel data
+					FTexture2DMipMap& Mip1 = NewTexture->PlatformData->Mips[0];
+					void* Data = Mip1.BulkData.Lock(LOCK_READ_ONLY);
+
+					int32 Width = 1920;
+					int32 Height = 1080;
+					TArray<FColor> Pixels;
+					Pixels.SetNumUninitialized(Width * Height);
+					FMemory::Memcpy(Pixels.GetData(), Data, Pixels.Num() * sizeof(FColor));
+
+					Mip1.BulkData.Unlock();
+
+					// Use Image Wrapper to encode PNG
+					IImageWrapperModule& ImageWrapperModule = FModuleManager::LoadModuleChecked<IImageWrapperModule>(FName("ImageWrapper"));
+					TSharedPtr<IImageWrapper> ImageWrapper = ImageWrapperModule.CreateImageWrapper(EImageFormat::PNG);
+
+					ImageWrapper->SetRaw(Pixels.GetData(), Pixels.GetAllocatedSize(), Width, Height, ERGBFormat::BGRA, 8);
+
+					const TArray<unsigned char, TSizedDefaultAllocator<64>>& PNGData = ImageWrapper->GetCompressed();
+
+					FFileHelper::SaveArrayToFile(PNGData, *(FPaths::ProjectDir() / TEXT("Saved/MyTexture.png")));
+
+					
 					// // Load your base material
 					// UMaterial* BaseMaterial = LoadObject<UMaterial>(
 					// 	nullptr, TEXT("/Game/M_DebugView") // path to your material
@@ -158,21 +170,6 @@ void FDebugShaderModule::StartupModule()
 					// MID->SetTextureParameterValue(FName("RenderTexture"), GMyRenderTarget);
 				}
 		});
-	
-    GetRendererModule().RegisterPostOpaqueRenderDelegate(
-        FPostOpaqueRenderDelegate::CreateLambda([](FPostOpaqueRenderParameters& Parameters)
-			{
-				if (!GMyRenderTargetRHI)
-					return;
-
-	
-				FRHICommandListImmediate& RHICmdList = *Parameters.RHICmdList;
-				FTextureRenderTargetResource* RTResource = GMyRenderTarget->GetRenderTargetResource();
-				GMyRenderTargetRHI = RTResource->GetRenderTargetTexture();
-				// Run your custom render code
-				RenderSimplePass(RHICmdList, GMyRenderTargetRHI);
-			})
-		);
 	
 	UE_LOG(LogTemp, Log, TEXT("DEBUG SHADER MODULE FINISHED"));
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module

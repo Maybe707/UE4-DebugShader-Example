@@ -42,5 +42,6 @@ void MainPS(
     float3 color = lerp(float3(1, 0, 0), float3(0, 0, 1), dist * 2.0);
     
     OutColor = float4(color, 0.5); // Semi-transparent
+	
+//	OutColor = float4(1, 0, 0, 1); // Red	
 }
-
