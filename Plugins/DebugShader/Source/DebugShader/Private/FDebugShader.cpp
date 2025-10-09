@@ -31,12 +31,15 @@ IMPLEMENT_SHADER_TYPE(, FMyPS, TEXT("/Shaders/Debug.usf"), TEXT("MainPS"), SF_Pi
 void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef RenderTarget)
 {
 	TArray<FVector> Vertices;
-	Vertices.SetNum(3);
+	Vertices.SetNum(6);
 
 // Set positions manually
-	Vertices[0] = FVector(-0.5f, -0.5f, 0.f);
+	Vertices[0] = FVector( 0.0f, -1.0f, 0.f);
 	Vertices[1] = FVector( 0.5f, -0.5f, 0.f);
 	Vertices[2] = FVector( 0.f,  0.5f, 0.f);
+	Vertices[3] = FVector( 0.5f, -0.5f, 0.f);
+	Vertices[4] = FVector( 1.0f, 0.5f, 0.f);
+	Vertices[5] = FVector( 1.0f, -1.0f, 0.f);
 
 // Initialize GPU resource
 	FRHIResourceCreateInfo CreateInfo(TEXT("SimpleVertexBuffer"));
@@ -87,7 +90,7 @@ void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef Ren
 	RHICmdList.SetStreamSource(0, VertexBufferRHI, 0);
 	
     // 5. Рисуем 3 вершины (полноэкранный треугольник)
-    RHICmdList.DrawPrimitive(0, 1, 1);
+    RHICmdList.DrawPrimitive(0, 2, 1);
 
     // 6. Заканчиваем рендер пасс
     RHICmdList.EndRenderPass();

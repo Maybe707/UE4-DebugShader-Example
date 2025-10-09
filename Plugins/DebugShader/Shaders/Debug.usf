@@ -26,7 +26,7 @@ void MainVS(
     // Vertex 2: ( 3, -1)
     OutUV = float2((VertexId << 1) & 2, VertexId & 2);
 //    OutPosition = float4(OutUV * float2(2.0f, -2.0f) + float2(-1.0f, 1.0f), 0.0f, 1.0f);
-	  OutPosition = InPos * float4(0.2, 0.2, 0.2, 1.0) + float4(0.25, 0.2, 0.0, 0.0);
+	  OutPosition = InPos * float4(0.5, 0.5, 0.5, 1.0);
 }
 
 // Pixel Shader - Simple gradient based on screen position
@@ -43,8 +43,8 @@ void MainPS(
     // Red to blue gradient based on distance from center
     float3 color = lerp(float3(1, 0, 0), float3(0, 0, 1), dist * 2.0);
     
-    OutColor = float4(color, 1); // Semi-transparent
+//    OutColor = float4(color, 1); // Semi-transparent
 	
-//	OutColor = float4(1, 0, 0, 1); // Red	
+	OutColor = float4(0.8, 1, 0, 1); // Green	
 }
 
