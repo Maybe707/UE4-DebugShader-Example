@@ -51,4 +51,10 @@ public:
 /*     return RenderTarget; */
 /* } */
 
+struct FSimpleVertex
+{
+	FVector Position;
+	FColor  Color;
+};
+
 void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef RenderTarget);

@@ -15,9 +15,11 @@ float4 MainPS() : SV_Target0
 // Vertex Shader - Generates fullscreen triangle from vertex ID
 void MainVS(
 	in float4 InPos : ATTRIBUTE0,
+	in float4 InColor : ATTRIBUTE1,
     uint VertexId : SV_VertexID,
     out float4 OutPosition : SV_POSITION,
-    out float2 OutUV : TEXCOORD0
+    out float2 OutUV : TEXCOORD0,
+	out float4 OutColor : COLOR0
 )
 {
     // Generate fullscreen triangle
@@ -27,12 +29,14 @@ void MainVS(
     OutUV = float2((VertexId << 1) & 2, VertexId & 2);
 //    OutPosition = float4(OutUV * float2(2.0f, -2.0f) + float2(-1.0f, 1.0f), 0.0f, 1.0f);
 	  OutPosition = InPos * float4(0.5, 0.5, 0.5, 1.0);
+	  OutColor    = InColor;
 }
 
 // Pixel Shader - Simple gradient based on screen position
 void MainPS(
     float4 SvPosition : SV_POSITION,
     float2 UV : TEXCOORD0,
+	in float4 InColor : COLOR0,
     out float4 OutColor : SV_Target0
 )
 {
@@ -45,6 +49,6 @@ void MainPS(
     
 //    OutColor = float4(color, 1); // Semi-transparent
 	
-	OutColor = float4(0.8, 1, 0, 1); // Green	
+	OutColor = InColor;
 }
 
