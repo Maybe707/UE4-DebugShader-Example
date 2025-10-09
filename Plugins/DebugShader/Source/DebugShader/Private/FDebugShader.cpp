@@ -30,6 +30,27 @@ IMPLEMENT_SHADER_TYPE(, FMyPS, TEXT("/Shaders/Debug.usf"), TEXT("MainPS"), SF_Pi
 
 void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef RenderTarget)
 {
+	TArray<FVector> Vertices;
+	Vertices.SetNum(3);
+
+// Set positions manually
+	Vertices[0] = FVector(-0.5f, -0.5f, 0.f);
+	Vertices[1] = FVector( 0.5f, -0.5f, 0.f);
+	Vertices[2] = FVector( 0.f,  0.5f, 0.f);
+
+// Initialize GPU resource
+	FRHIResourceCreateInfo CreateInfo(TEXT("SimpleVertexBuffer"));
+	FVertexBufferRHIRef VertexBufferRHI;
+	VertexBufferRHI = RHICreateVertexBuffer(
+		Vertices.Num() * sizeof(FVector),
+		BUF_Static,
+		CreateInfo
+        );
+
+	void* Buffer = RHILockVertexBuffer(VertexBufferRHI, 0, Vertices.Num() * sizeof(FVector), RLM_WriteOnly);
+	FMemory::Memcpy(Buffer, Vertices.GetData(), Vertices.Num() * sizeof(FVector));
+	RHIUnlockVertexBuffer(VertexBufferRHI);
+	
     // 1. Получаем шейдеры
     TShaderMapRef<FDebugShader> VertexShader(GetGlobalShaderMap(GMaxRHIFeatureLevel));
     TShaderMapRef<FMyPS> PixelShader(GetGlobalShaderMap(GMaxRHIFeatureLevel));
@@ -50,15 +71,23 @@ void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef Ren
     GraphicsPSOInit.BlendState = TStaticBlendState<>::GetRHI();
     GraphicsPSOInit.RasterizerState = TStaticRasterizerState<>::GetRHI();
     GraphicsPSOInit.PrimitiveType = PT_TriangleList;
-    
-    GraphicsPSOInit.BoundShaderState.VertexDeclarationRHI = GEmptyVertexDeclaration.VertexDeclarationRHI;
+
+	FVertexDeclarationElementList Elements;
+	Elements.Add(FVertexElement(0, 0, VET_Float3, 0, sizeof(FVector)));
+	FVertexDeclarationRHIRef VertexDecl = RHICreateVertexDeclaration(Elements);
+	
+//    GraphicsPSOInit.BoundShaderState.VertexDeclarationRHI = GEmptyVertexDeclaration.VertexDeclarationRHI;
+	GraphicsPSOInit.BoundShaderState.VertexDeclarationRHI = VertexDecl;
     GraphicsPSOInit.BoundShaderState.VertexShaderRHI = VertexShader.GetVertexShader();
     GraphicsPSOInit.BoundShaderState.PixelShaderRHI = PixelShader.GetPixelShader();
 
     SetGraphicsPipelineState(RHICmdList, GraphicsPSOInit);
 
+// Set stream source
+	RHICmdList.SetStreamSource(0, VertexBufferRHI, 0);
+	
     // 5. Рисуем 3 вершины (полноэкранный треугольник)
-    RHICmdList.DrawPrimitive(0, 1, 3);
+    RHICmdList.DrawPrimitive(0, 1, 1);
 
     // 6. Заканчиваем рендер пасс
     RHICmdList.EndRenderPass();
