@@ -97,10 +97,11 @@ void FDebugShaderModule::StartupModule()
 					ENQUEUE_RENDER_COMMAND(MyRenderCommand)(
 						[](FRHICommandListImmediate& RHICmdList)
 							{
-					FTextureRenderTargetResource* RTResource0 = GMyRenderTarget->GetRenderTargetResource();
-					GMyRenderTargetRHI = RTResource0->GetRenderTargetTexture();
-					// Run your custom render code
-					RenderSimplePass(RHICmdList, GMyRenderTargetRHI);
+								GMyRenderTarget->RenderTargetFormat = RTF_RGBA16f;
+								FTextureRenderTargetResource* RTResource0 = GMyRenderTarget->GetRenderTargetResource();
+								GMyRenderTargetRHI = RTResource0->GetRenderTargetTexture();
+								// Run your custom render code
+								RenderSimplePass(RHICmdList, GMyRenderTargetRHI);
 							}
 						);
 					
@@ -137,18 +138,59 @@ void FDebugShaderModule::StartupModule()
 
 					// Make sure texture is fully loaded
 
+
+					int32 Width = 1920;
+					int32 Height = 1080;
+
+					TArray<FLinearColor> ReferencePixels;
+					ReferencePixels.SetNum(Width * Height);
+
+					for (int32 Y = 0; Y < Height; ++Y)
+						{
+							for (int32 X = 0; X < Width; ++X)
+								{
+									float U = float(X) / (Width - 1);  // 0..1
+									float V = float(Y) / (Height - 1); // 0..1
+									// В UE4 текстура обычно Y=0 снизу, Y=1 сверху
+									// Если нужно инвертировать: V = 1.0f - V;
+									// UE_LOG(LogTemp, Log, TEXT("U: %f"), U);
+									// UE_LOG(LogTemp, Log, TEXT("V: %f"), V);
+									ReferencePixels[Y * Width + X] = FLinearColor(U, V, 0, 1);
+								}
+						}					
+
+					float MaxDiff = 0.0f;
+					for (int32 i = 0; i < Width * Height; ++i)
+						{
+							FVector2D RefUV(ReferencePixels[i].R, ReferencePixels[i].G);
+							FVector2D RendUV(Bitmap[i].R, Bitmap[i].G);
+
+							// UE_LOG(LogTemp, Log, TEXT("RefUV: %f"), RefUV[0]);
+							// UE_LOG(LogTemp, Log, TEXT("RendUV: %f"), RendUV[0]);
+							
+							float Diff = FVector2D::Distance(RefUV, RendUV);
+							MaxDiff = FMath::Max(MaxDiff, Diff);
+						}
+
+					UE_LOG(LogTemp, Log, TEXT("Max UV difference: %f"), MaxDiff);
+					
 					// Access pixel data
 					FTexture2DMipMap& Mip1 = NewTexture->PlatformData->Mips[0];
 					void* Data = Mip1.BulkData.Lock(LOCK_READ_ONLY);
 
-					int32 Width = 1920;
-					int32 Height = 1080;
 					TArray<FColor> Pixels;
 					Pixels.SetNumUninitialized(Width * Height);
 					FMemory::Memcpy(Pixels.GetData(), Data, Pixels.Num() * sizeof(FColor));
 
 					Mip1.BulkData.Unlock();
 
+					for ( int i = 0; i < Width * Height; ++i ) {
+						if( Pixels[i].G > 0 || Pixels[i].R > 0 ) {
+							UE_LOG(LogTemp, Log, TEXT("PIXEL: %d"), Pixels[i].G);
+							UE_LOG(LogTemp, Log, TEXT("PIXEL: %d"), Pixels[i].R);
+						}
+					}
+					
 					// Use Image Wrapper to encode PNG
 					IImageWrapperModule& ImageWrapperModule = FModuleManager::LoadModuleChecked<IImageWrapperModule>(FName("ImageWrapper"));
 					TSharedPtr<IImageWrapper> ImageWrapper = ImageWrapperModule.CreateImageWrapper(EImageFormat::PNG);
