@@ -55,6 +55,7 @@ struct FSimpleVertex
 {
 	FVector Position;
 	FColor  Color;
+	FVector UV;
 };
 
 void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef RenderTarget);

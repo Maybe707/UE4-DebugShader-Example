@@ -34,12 +34,13 @@ void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef Ren
 	Vertices.SetNum(6);
 
 // Set positions manually
-	Vertices[0].Position = FVector( 0.0f, -1.0f, 0.f);
-	Vertices[1].Position = FVector( 0.5f, -0.5f, 0.f);
-	Vertices[2].Position = FVector( 0.f,  0.5f, 0.f);
-	Vertices[3].Position = FVector( 0.5f, -0.5f, 0.f);
-	Vertices[4].Position = FVector( 1.0f, 0.5f, 0.f);
-	Vertices[5].Position = FVector( 1.0f, -1.0f, 0.f);
+	float multiplier = 1.0f;
+	Vertices[0].Position = FVector( 1.0f, 1.0f * multiplier, 0.f);
+	Vertices[1].Position = FVector( 0.0f * multiplier, 1.0f * multiplier, 0.f);
+	Vertices[2].Position = FVector( 0.0f * multiplier, 0.0f * multiplier, 0.f);
+	Vertices[3].Position = FVector( 0.0f * multiplier, 0.0f * multiplier, 0.f);
+	Vertices[4].Position = FVector( 1.0f * multiplier, 0.0f * multiplier, 0.f);
+	Vertices[5].Position = FVector( 1.0f * multiplier, 1.0f * multiplier, 0.f);
 
 	Vertices[0].Color = FColor::Red;
 	Vertices[1].Color = FColor::Red;
@@ -48,6 +49,13 @@ void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef Ren
 	Vertices[4].Color = FColor::Blue;
 	Vertices[5].Color = FColor::Blue;
 
+	Vertices[0].UV = FVector( 1.0, 1.0, 0.0 );
+	Vertices[1].UV = FVector( 0.0, 1.0, 0.0 );
+	Vertices[2].UV = FVector( 0.0, 0.0, 0.0 );
+	Vertices[3].UV = FVector( 0.0, 0.0, 0.0 );
+	Vertices[4].UV = FVector( 1.0, 0.0, 0.0 );
+	Vertices[5].UV = FVector( 1.0, 1.0, 0.0 );
+	
 // Initialize GPU resource
 	FRHIResourceCreateInfo CreateInfo(TEXT("SimpleVertexBuffer"));
 	FVertexBufferRHIRef VertexBufferRHI;
@@ -85,6 +93,7 @@ void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef Ren
 	FVertexDeclarationElementList Elements;
 	Elements.Add(FVertexElement(0, STRUCT_OFFSET(FSimpleVertex, Position), VET_Float3, 0, sizeof(FSimpleVertex)));
 	Elements.Add(FVertexElement(0, STRUCT_OFFSET(FSimpleVertex, Color), VET_Color, 1, sizeof(FSimpleVertex)));
+	Elements.Add(FVertexElement(0, STRUCT_OFFSET(FSimpleVertex, UV), VET_Float2, 2, sizeof(FSimpleVertex)));
 	FVertexDeclarationRHIRef VertexDecl = RHICreateVertexDeclaration(Elements);
 	
 //    GraphicsPSOInit.BoundShaderState.VertexDeclarationRHI = GEmptyVertexDeclaration.VertexDeclarationRHI;
