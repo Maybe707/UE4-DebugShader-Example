@@ -2,28 +2,61 @@
 
 
 #include "FDebugShader.h"
+#include "ShaderParameterUtils.h"
+
+IMPLEMENT_UNIFORM_BUFFER_STRUCT(FMyUniformBufferStruct, "MyUniformBuffer");
 
 FDebugShader::FDebugShader() {}
 
-FDebugShader::FDebugShader(const ShaderMetaType::CompiledShaderInitializerType& Initializer)
-	: FGlobalShader(Initializer) {}
+FDebugShader::FDebugShader(
+    const ShaderMetaType::CompiledShaderInitializerType &Initializer)
+    : FGlobalShader(Initializer) {
+	MyUniformBuffer.Bind(Initializer.ParameterMap, TEXT("MyUniformBuffer"));
+}
 
 bool FDebugShader::ShouldCompilePermutation(const FGlobalShaderPermutationParameters& Parameters)
 {
 	return true; // Always compile
 }
 
+void FDebugShader::SetParameters(FRHICommandListImmediate& RHICmdList,
+								 const TShaderMapRef<FDebugShader>& VertexShader,
+								 const FUniformBufferRHIRef& MyUB)
+{
+	if (!VertexShader->MyUniformBuffer.IsBound())
+		{
+			UE_LOG(LogTemp, Error, TEXT("FDebugShader: MyUniformBuffer NOT bound for vertex shader!"));
+			return;
+		}
+	
+	SetUniformBufferParameter(RHICmdList, VertexShader.GetVertexShader(), MyUniformBuffer, MyUB);
+}
+
 IMPLEMENT_SHADER_TYPE(, FDebugShader, TEXT("/Shaders/Debug.usf"), TEXT("MainVS"), SF_Vertex);
 
 FMyPS::FMyPS() {}
 
-FMyPS::FMyPS(const ShaderMetaType::CompiledShaderInitializerType& Initializer)
-	: FGlobalShader(Initializer)
-{}
+FMyPS::FMyPS(const ShaderMetaType::CompiledShaderInitializerType &Initializer)
+    : FGlobalShader(Initializer) {
+  	MyUniformBuffer.Bind(Initializer.ParameterMap, TEXT("MyUniformBuffer"));
+}
 
 bool FMyPS::ShouldCompilePermutation(const FGlobalShaderPermutationParameters& Parameters)
 {
 	return true;
+}
+
+void FMyPS::SetParameters(FRHICommandListImmediate& RHICmdList,
+						  const TShaderMapRef<FMyPS>& PixelShader,
+						  const FUniformBufferRHIRef& MyUB)
+{
+	if (!PixelShader->MyUniformBuffer.IsBound())
+		{
+			UE_LOG(LogTemp, Error, TEXT("FDebugShader: MyUniformBuffer NOT bound for pixel shader!"));
+			return;
+		}
+	
+	SetUniformBufferParameter(RHICmdList, PixelShader.GetPixelShader(), MyUniformBuffer, MyUB);
 }
 
 IMPLEMENT_SHADER_TYPE(, FMyPS, TEXT("/Shaders/Debug.usf"), TEXT("MainPS"), SF_Pixel);
@@ -68,11 +101,11 @@ void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef Ren
 	void* Buffer = RHILockVertexBuffer(VertexBufferRHI, 0, Vertices.Num() * sizeof(FSimpleVertex), RLM_WriteOnly);
 	FMemory::Memcpy(Buffer, Vertices.GetData(), Vertices.Num() * sizeof(FSimpleVertex));
 	RHIUnlockVertexBuffer(VertexBufferRHI);
-	
+
     // 1. Получаем шейдеры
     TShaderMapRef<FDebugShader> VertexShader(GetGlobalShaderMap(GMaxRHIFeatureLevel));
     TShaderMapRef<FMyPS> PixelShader(GetGlobalShaderMap(GMaxRHIFeatureLevel));
-
+	
     // 2. Начинаем рендер пасс
     FRHIRenderPassInfo RenderPassInfo(RenderTarget, ERenderTargetActions::DontLoad_Store);
     RHICmdList.BeginRenderPass(RenderPassInfo, TEXT("SimpleRenderPass"));
@@ -102,6 +135,15 @@ void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef Ren
     GraphicsPSOInit.BoundShaderState.PixelShaderRHI = PixelShader.GetPixelShader();
 
     SetGraphicsPipelineState(RHICmdList, GraphicsPSOInit);
+
+	FMyUniformBufferStruct UniformData;
+	UniformData.SomeVector = FVector4(1,0.5,0,1);
+
+	FUniformBufferRHIRef UniformBuffer =
+		RHICreateUniformBuffer(&UniformData, FMyUniformBufferStruct::StaticStructMetadata.GetLayout(), UniformBuffer_SingleDraw);
+	
+	VertexShader->SetParameters(RHICmdList, VertexShader, UniformBuffer);
+	PixelShader->SetParameters(RHICmdList, PixelShader, UniformBuffer);
 
 // Set stream source
 	RHICmdList.SetStreamSource(0, VertexBufferRHI, 0);
