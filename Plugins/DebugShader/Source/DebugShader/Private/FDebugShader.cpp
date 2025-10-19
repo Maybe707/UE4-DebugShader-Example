@@ -140,9 +140,9 @@ void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef Ren
 //	UniformData.SomeVector = FVector4(1,0.5,0,1);
 	for( int i = 0; i < 4; ++i ) {
 		UniformData.ModelMatrices[i] = FMatrix(
-			FPlane(i * 0.1f, 0.0f, 0.0f, 0.0f), // Row 0
-			FPlane(0.0f, i * 0.1f, 0.0f, 0.0f), // Row 1
-			FPlane(0.0f, 0.0f, i * 0.1f, 0.0f), // Row 2
+			FPlane(0.5f, 0.0f, 0.0f, 0.0f), // Row 0
+			FPlane(0.0f, 0.5f, 0.0f, 0.0f), // Row 1
+			FPlane(0.0f, 0.0f, 0.5f, 0.0f), // Row 2
 			FPlane(i * 0.2, 0.3f, 0.0f, 1.0f)  // Row 3
 			);
 //		UniformData.ModelMatrices[i] = (float)i * 0.2f;
@@ -158,7 +158,7 @@ void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef Ren
 	RHICmdList.SetStreamSource(0, VertexBufferRHI, 0);
 	
     // 5. Рисуем 3 вершины (полноэкранный треугольник)
-    RHICmdList.DrawPrimitive(0, 2, 1);
+    RHICmdList.DrawPrimitive(0, 2, 2);
 
     // 6. Заканчиваем рендер пасс
     RHICmdList.EndRenderPass();
