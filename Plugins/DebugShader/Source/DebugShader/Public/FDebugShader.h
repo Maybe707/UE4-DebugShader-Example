@@ -7,12 +7,8 @@
 #include "CommonRenderResources.h"
 #include "ShaderParameters.h"
 
-/* #include "Engine/TextureRenderTarget2D.h" */
-/* #include "CanvasTypes.h" */
-/* #include "Engine/Canvas.h" */
-
 BEGIN_UNIFORM_BUFFER_STRUCT(FMyUniformBufferStruct, )
-	    SHADER_PARAMETER(FVector4, SomeVector)
+	SHADER_PARAMETER_ARRAY(FMatrix, ModelMatrices, [4])
 END_UNIFORM_BUFFER_STRUCT()
 
 class DEBUGSHADER_API FDebugShader : public FGlobalShader
@@ -36,8 +32,6 @@ class DEBUGSHADER_API FDebugShader : public FGlobalShader
 	LAYOUT_FIELD(FShaderUniformBufferParameter, MyUniformBuffer);
 };
 
-/* IMPLEMENT_SHADER_TYPE(, FDebugShader, TEXT("/Plugins/Resources/Debug.usf"), TEXT("MainVS"), SF_Vertex); */
-
 class DEBUGSHADER_API FMyPS : public FGlobalShader
 {
     DECLARE_SHADER_TYPE(FMyPS, Global);
@@ -54,20 +48,6 @@ public:
   private:
 	LAYOUT_FIELD(FShaderUniformBufferParameter, MyUniformBuffer);
 };
-
-/* UTextureRenderTarget2D* CreateRenderTarget(UObject* Outer, int32 Width, int32 Height) */
-/* { */
-/*     UTextureRenderTarget2D* RenderTarget = NewObject<UTextureRenderTarget2D>(Outer); */
-/*     RenderTarget->RenderTargetFormat = RTF_RGBA8; */
-/*     RenderTarget->InitAutoFormat(Width, Height); */
-/*     RenderTarget->UpdateResourceImmediate(true); */
-
-/* 	// Must be in another place */
-/* 	FTextureRenderTargetResource* RTResource = RenderTarget->GameThread_GetRenderTargetResource(); */
-/* 	FRHITexture* TextureRHI = RTResource->GetRenderTargetTexture(); */
-	
-/*     return RenderTarget; */
-/* } */
 
 struct FSimpleVertex
 {

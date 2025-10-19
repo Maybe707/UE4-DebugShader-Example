@@ -137,7 +137,16 @@ void RenderSimplePass(FRHICommandListImmediate& RHICmdList, FTexture2DRHIRef Ren
     SetGraphicsPipelineState(RHICmdList, GraphicsPSOInit);
 
 	FMyUniformBufferStruct UniformData;
-	UniformData.SomeVector = FVector4(1,0.5,0,1);
+//	UniformData.SomeVector = FVector4(1,0.5,0,1);
+	for( int i = 0; i < 4; ++i ) {
+		UniformData.ModelMatrices[i] = FMatrix(
+			FPlane(i * 0.1f, 0.0f, 0.0f, 0.0f), // Row 0
+			FPlane(0.0f, i * 0.1f, 0.0f, 0.0f), // Row 1
+			FPlane(0.0f, 0.0f, i * 0.1f, 0.0f), // Row 2
+			FPlane(i * 0.2, 0.3f, 0.0f, 1.0f)  // Row 3
+			);
+//		UniformData.ModelMatrices[i] = (float)i * 0.2f;
+	}
 
 	FUniformBufferRHIRef UniformBuffer =
 		RHICreateUniformBuffer(&UniformData, FMyUniformBufferStruct::StaticStructMetadata.GetLayout(), UniformBuffer_SingleDraw);

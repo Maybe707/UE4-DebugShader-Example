@@ -13,9 +13,11 @@ float4 MainPS() : SV_Target0
 
 //StructuredBuffer<float4> MyUniformBuffer;
 
+#define MODEL_MATRICES_NUMBER
+
 cbuffer MyUniformBuffer
 {
-    float4 SomeVector;
+    float4x4 ModelMatrices[4];
 }
 
 /*cbuffer TranslationMatricesBuffer : register(b0)
@@ -42,7 +44,7 @@ void MainVS(
 //	  OutUV = InPos.xy * 0.5f + 0.5f;
 	  OutUV = InUV;
 //    OutPosition = float4(OutUV * float2(2.0f, -2.0f) + float2(-1.0f, 1.0f), 0.0f, 1.0f);
-	  OutPosition = InPos * float4(0.5, 0.5, 0.5, 1.0) + SomeVector;
+	  OutPosition = mul(InPos * float4(0.5, 0.5, 0.5, 1.0), ModelMatrices[2]);
 	  OutColor    = InColor;
 }
 
